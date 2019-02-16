@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{%block content%}
+
+	{%for order  in orders%}
+	{%if request.user.username == order.author.username%}
+		<p><a href="{{order.get_absolute_url}}">{{order}}</a></p>
+	{%endif%}
+	{%endfor%}
+{%endblock%}

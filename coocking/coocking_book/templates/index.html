@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+<form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <select name="language">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Go">
+</form>
+
+
+{%block content%}
+
+	<form action="{% url 'coocking_book:dish_search' %}" method="GET">
+   		<input type="text" name="q" />
+   		<button type="submit">{% trans 'Поиск' %}</button>
+	</form>
+
+
+	{%for dish  in dish_list%}
+		<h2><a href="{{dish.get_absolute_url}}">{{dish.title}}</a></h2>
+		<h3>{%trans 'Описание:' %}</h3>
+		<p>{{dish.description}}</p>
+		<p><a href="{% url 'coocking_book:add_order_list' dish.id %}">{% trans 'Оформить заказ' %}</a>
+			{%if request.user.username == dish.author.username%}
+		   <a href="{% url 'coocking_book:delete_dish' dish.id %}">{% trans 'Удалить блюдо' %}</a>
+			{%endif%}
+		</p>
+
+	{%endfor%}
+{%endblock%}

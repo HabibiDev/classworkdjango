@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{%block content%}
+<h1>{{dish_object.title}}</h1>
+<form action="{{add_ingredients}}" method='POST'>
+	{%csrf_token%}	
+	<p>Ингредиенты:</p>
+	{{form_ingredient.as_p}}
+	<button type='submit'>Добавить ингредиенты</button>
+</form>
+{%endblock%}

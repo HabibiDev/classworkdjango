@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{%block content%}
+		<font color="red">{{error}}</font>
+		<h2>{{dish.title}}</h2>
+		<h3>Автор блюда:{{dish.author}}</h3>
+		<h3>Описание:</h3>
+		<p>{{dish.description}}</p>
+		<h3>Ингридиенты:</h3>
+	{%for ingredient in dishes_ingredients%}
+		<p>{{ingredient.name}} : {{ingredient.weight}} г.</p>
+	{%endfor%}
+	<br><br>
+	<h3>Заметки</h3>
+	{%for note in notes%}
+		<p>{{note.content}}</p>
+	{%endfor%}
+	<p><a href="{% url 'coocking_book:add_order_list' dish.id %}">Оформить заказ</a></p>
+	{%if request.user.username == dish.author.username%}
+	<p><a href="{%url 'coocking_book:update_dish' dish.id %}">Редактировать блюдо</a></p>
+	{%endif%}
+{%endblock%}
+

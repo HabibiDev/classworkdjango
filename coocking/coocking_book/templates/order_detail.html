@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{%block content%}
+		<h2>Блюдо:{{order.dish.title}}</h2>
+		<h3>Описание блюда</h3>
+		<p>{{order.dish.description}}
+		
+		<h3>Ингрединты:</h3>
+		{%for ingredient in order_ingredient%}
+			<p>{{ingredient.name}}:{{ingredient.weight}}</p>
+		{%endfor%}
+		<p>Номер заказчика:{{order.contact}}</p>
+		<p>Дата заказа:{{order.order_date}}</p>
+		<br><br>
+		<h3>Заметки</h3>
+		
+		{%for note in notes%}
+			<p>{{note.content}}</p>
+		{%endfor%}
+		<a href="{% url 'notes:add_notes_to_order' order.id %}">Добавить заметку</a> 
+{%endblock%}

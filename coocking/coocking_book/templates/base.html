@@ -1,0 +1,31 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coocking_fun</title>
+
+</head>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/dishes.css'%}">
+<body>
+
+  <div class="parent">
+    <div class="block">
+      {%if request.user.is_authenticated%}
+      <h2>{{user.username}}<a href="{%url 'logout' %}">Выйти</a></h2>
+        <p><a href="{% url 'coocking_book:dish_list' %}">Главная</a>
+           <a href="{% url 'coocking_book:add_dish' %}">Добавить блюдо</a>
+           <a href="{% url 'coocking_book:order_list' %}">Заказы</a>
+        </p>
+        <p>Заметки:
+          <a href="{% url 'notes:note_list' 'dish' %}">Блюда</a>
+          <a href="{% url 'notes:note_list' 'order' %}">Заказы</a>
+        </p>
+      <br><br><br><br>
+      {%endif%}
+      <font color="red">{{error}}</font>
+        {%block content%}
+        {%endblock%}
+    </div>
+  </div>
+</body>
+</html>

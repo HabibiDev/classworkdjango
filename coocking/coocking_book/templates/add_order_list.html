@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{%block content%}
+	<font color="red">{{error}}</font>
+	<h2>{{order_dish.title}}</h2>
+	<h3>Описание:</h3>
+	<p>{{order_dish.description}}</p>
+	<br><br><br>
+	<form action="{% url 'coocking_book:add_order_list' order_dish.id %}" method="POST">
+		{%csrf_token%}
+		{{form_ingredient.as_p}}
+		<br><br>
+		<p>Введите ваш контактный номер телефона:</p>
+		{{form_order.contact}}
+		<br><br><br>
+		<button type="submit">Сохранить заказ</button>
+	</form>
+{%endblock%}

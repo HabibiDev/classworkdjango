@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{%block content%}
+<h1>{{model}}</h1>
+<p>Заметки:</p>
+{%for note in notes%}
+<p>{{note.content}}</p>
+{%endfor%}
+{%endblock%}

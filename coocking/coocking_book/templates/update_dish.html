@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{%block content%}
+<form action="{{update_dish}}" method='POST'>
+	{%csrf_token%}
+        <p>
+           
+            <input type="text" name="title" value="{{form_dish.title}}"/>
+        </p>
+        <p>
+            
+            <input type="textarea" name="description" value="{{form_dish.description}}"/>
+        </p>
+	<h3>Ингредиенты:</h3>
+	<p>Снимите галочку с ингредиентов которые нужно удалить</p>
+	{%for i in ingredients%}
+        <p>
+            
+            <input type="text" name="{{i.name}}" value="{{i.name}}"/>
+          
+            <input type="text" name="{{i.name}}_weight" value="{{i.weight}}"/>
+
+            <input type="checkbox" name="{{i.name}}_is_active" checked/>
+
+
+        </p>
+    {%endfor%}
+    <input type="submit" value="Добавить ингредиенты" name="add_ingredients">
+    <input type="submit" value="Добавить заметку" name="add_note">
+	<button type='submit'>Сохранить</button>
+</form>
+{%endblock%} 

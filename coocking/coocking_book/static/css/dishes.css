@@ -1,0 +1,25 @@
+.parent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.block {
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin: -125px 0 0 -125px;
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border: none;
+    }
+}

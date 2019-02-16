@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{%block content%}
+<h1>{{model}}</h1>
+<p>Заметки:</p>
+{%for note in notes%}
+<p>{{note.content}}</p>
+{%endfor%}
+<form action="" method='POST'>
+	{%csrf_token%}	
+	<p>Новая заметка:</p>
+	<input type="text" name="add_note">
+	<button type='submit'>Добавить заметку</button>
+</form>
+{%endblock%}

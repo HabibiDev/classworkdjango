@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-16 11:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: coocking_book/models.py:13 coocking_book/models.py:38
+msgid "Name"
+msgstr "Назва"
+
+#: coocking_book/models.py:15 coocking_book/models.py:40
+msgid "Weight in gramm"
+msgstr "Кiлькiсть у грамах"
+
+#: coocking_book/templates/index.html:8
+msgid "Поиск"
+msgstr "Пошук"
+
+#: coocking_book/templates/index.html:14
+msgid "Описание:"
+msgstr "Опис"
+
+#: coocking_book/templates/index.html:16
+msgid "Оформить заказ"
+msgstr "Замовити"
+
+#: coocking_book/templates/index.html:18
+msgid "Удалить блюдо"
+msgstr "Видалити страву"

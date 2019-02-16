@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{%block content%}
+<form action="{% url 'coocking_book:add_dish' %}" method='POST'>
+	{%csrf_token%}
+	<p>Название блюда</p>
+	<p>{{form_dish.title}}</p>
+	<p>Описание</p>
+	<p>{{form_dish.description}}</p>
+	<p>Ингредиенты:</p>
+	{{form_ingredient.as_p}}
+	<button type='submit'>Добавить блюдо</button>
+</form>
+{%endblock%}
